@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+.show {
+  display: flex;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  justify-content: space-evenly;
+}
+
+.Image {
+  display: inline-block;
+  height: 425px;
+  border: 2px solid #eb4034;
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+.comment {
+  margin-top: 25px;
+  width: 200px;
+}
+
+.commentDisplay {
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+#commentDisp {
+  margin-left: 40px;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #eb4034;
+}
+.info {
+  display: inline-block;
+  height: 200px;
+  margin-top: 15px;
+  margin-left: -40px;
+}
+
+#commentText {
+  word-wrap: break-word;
+}
+
+.indComment {
+  padding: 10px;
+  width: 300px;
+  border: 2px solid #eb4034;
+}
+
+#back {
+  background-color: #eb4034;
+  height: 40px;
+  width: 80px;
+  border-radius: 35px;
+  margin-left: -50px;
+  cursor: pointer;
+}
+
+#delete-show {
+  margin-left: -40px;
+  background-color: #eb4034;
+  cursor: pointer;
+}
+
+#edit-show {
+  font-family: "Montserrat", sans-serif;
+  width: 56px;
+  background-color: #eb4034;
+  cursor: pointer;
+}
+
+#movieReview {
+  width: 300px;
+  text-align: center;
+}
+
+#review1 {
+  color: #eb4034;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.reviewBox {
+  margin-left: -40px;
+  margin-top: 30px;
+}

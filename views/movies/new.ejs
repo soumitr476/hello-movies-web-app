@@ -1,0 +1,31 @@
+<% layout('layouts/boilerplate') %> 
+    <div class="new">
+    <h1>ADD Movie</h1>
+    <form action="/movies" method="POST" enctype="multipart/form-data">
+        <div class="title">
+            <input type="text" id='title' name='title' placeholder="TITLE" required>
+        </div>
+        <div class="genre">
+            <input type="text" id="genre" name="genre" placeholder="GENRE" required>
+        </div>
+        <div class="cast">
+            <input type="text" id='cast' name='cast' placeholder="CAST" required>
+        </div>
+        <div class="director">
+            <input type="text" id="director" name="director" placeholder="DIRECTOR" required>
+        </div>
+        <div class="review">
+        <textarea name="review" id="review" cols="28" rows="3" placeholder="REVIEW" required></textarea>
+        </div>
+
+        <div class="image">
+            <input type="file" name="image" id="">
+        </div>
+       
+        <button class="Add">Add Movie</button>
+    </form>
+    </div>
+
+    
+    
+    

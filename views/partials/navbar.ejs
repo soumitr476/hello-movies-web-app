@@ -1,0 +1,16 @@
+<header>
+    <img class="logo" src="/images/clapperboard.png" alt="">
+    <nav>
+        <div class="navlinks">
+            <li><a href="/">Home</a></li>
+            <li><a href="/movies">Movies</a></li>
+            <li><a href="/movies/new">Add Movie</a></li>
+            <% if(!registeredUser) {%> 
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <% }else{ %>
+            <li><a href="/logout">Logout</a></li> 
+            <% } %> 
+        </div>
+    </nav>
+</header>

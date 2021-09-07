@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+
+html {
+  min-height: 100%;
+  background-image: url(/images/BrickBg.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+h1 {
+  color: whitesmoke;
+  font-size: 60px;
+  font-family: "Shadows into light", sans-serif;
+  letter-spacing: 5px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+
+a {
+  padding: 15px 30px;
+  color: black;
+  letter-spacing: 4px;
+  text-decoration: none;
+  font-size: 24px;
+  overflow: hidden;
+  transition: 0.2s;
+  background: #eb4034;
+  border-radius: 20px;
+}
+
+a:hover {
+  color: whitesmoke;
+  background: #eb4034;
+  box-shadow: 0 0 10px #eb4034, 0 0 40px #eb4034, 0 0 80px #eb4034;
+  transform-style: 1s;
+}

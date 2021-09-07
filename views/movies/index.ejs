@@ -1,0 +1,71 @@
+<% layout('layouts/boilerplate') %> 
+    <div class="searchbar">
+        <input type="text" name="searchbar" id="search" placeholder="Search">
+    </div>
+    <div id="showcards">
+    </div>  
+
+    <script>
+        const movie = <%- JSON.stringify(movie) %>;   
+        if(movie.length == 0)
+        {
+            var noMovie = document.createElement('h1');
+            noMovie.appendChild(document.createTextNode('No Movies To Show'))
+            noMovie.className = 'noMovie';
+            var showcard = document.getElementById('showcards');
+            showcard.appendChild(noMovie);
+
+        } 
+        for(let m of movie)
+        {
+            var showcard = document.getElementById('showcards');
+            var card = document.createElement('div');
+            var cardText = document.createElement('div');
+            card.classList.add('card',`${m.title}`.toLowerCase().replace(" ","-"));
+            cardText.className = "card-text";
+
+            var cardImage1 = document.createElement('div');
+            var cardButton = document.createElement('div');
+            var cardImageUrl = document.createElement('img');
+            cardImageUrl.src = m.image;
+            cardImage1.appendChild(cardImageUrl);
+            cardButton.className = "card-button";
+            var a = document.createElement('a');
+            var linkText = document.createTextNode("VIEW");
+            a.appendChild(linkText);
+            a.title = "VIEW";
+            a.href = `/movies/${m._id}`;
+            cardButton.appendChild(a);
+
+            // var newNode = document.createElement('h1');
+            // newNode.appendChild(document.createTextNode(m.title));
+            // cardText.appendChild(newNode);
+            card.appendChild(cardImage1);
+            card.appendChild(cardText);
+            card.appendChild(cardButton);
+            showcard.appendChild(card); 
+        } 
+
+        const searchBar = document.getElementById('search');
+        searchBar.addEventListener('keyup',(e)=>{
+            var searchString = e.target.value;
+            searchString = searchString.toLowerCase();
+            searchString = searchString.replace(" ","-");
+            const filterer = document.getElementsByClassName('card');
+            for(let f of filterer)
+            {
+                if(searchString && !f.classList.contains(searchString))
+                {
+                    f.style.display = 'none';
+                }  
+                else{
+                    f.style.display = 'grid';
+                }   
+            }
+        
+        })  
+    </script>   
+
+
+     
+     

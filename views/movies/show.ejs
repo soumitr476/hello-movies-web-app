@@ -1,0 +1,58 @@
+<% layout('layouts/boilerplate') %> 
+<a href="/movies"><button id="back">BACK</button></a>
+<div class="show">
+    <div class="info">
+    <h1><%= movie.title %> </h1>
+    <ul>
+        <li>Genre: <%= movie.genre  %> </li>
+        <li>Cast:  <%= movie.cast %></li>
+        <li>Director:  <%= movie.director %></li>
+        <li>Submitted By:  <%= movie.author.username %> </li>
+        <% if(registeredUser && movie.author.equals(registeredUser._id) ){  %> 
+        <a href="/movies/<%= movie._id  %>/edit "><button id="edit-show">EDIT</button></a>
+         <p>
+            <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST">
+            <button id="delete-show">DELETE</button>
+            </form>
+        </p> 
+        <% }  %> 
+    </ul>
+    <div class="reviewBox">
+    <h3 id="review1">REVIEW</h3>
+    <p id="movieReview"><%= movie.review  %> </p>
+    </div>
+    </div>
+    <div class="Image">
+        <img src=<%= movie.image %>  alt="Not found">
+    </div>
+
+    
+<div class="comment">
+    <% if(registeredUser){ %>
+        <form action="/movies/<%= movie._id %>/comments" method="POST">
+        <label for="rating">Rating</label>
+        <input type="range" min="1" max="5" id="rating" name="comment[rating]" re>
+        <label for="body">Comment</label>
+        <textarea name="comment[body]" id="body" cols="30" rows="3" required></textarea>
+        <button>Submit</button>
+    </form>
+    <% }  %> 
+    <p id="commentDisp">Comment Display :</p>
+     <div class="commentDisplay">
+    <%for(let comment of movie.comments) {  %>
+        <div class="indComment">
+        <p>Rating: <%= comment.rating %> </p>
+        <p>By: <%= comment.author.username %> </p>
+        <p id="commentText">Comment: <%= comment.body %> </p>
+        <% if(registeredUser && comment.author.equals(registeredUser._id) ){  %> 
+        <form action="/movies/<%= movie._id %>/comments/<%= comment._id%>?_method=DELETE" method="POST">
+            <button>Delete</button>
+        </form>
+        <% }  %> 
+    </div>
+    <% } %> 
+</div>
+    </div>
+
+</div>   
+
