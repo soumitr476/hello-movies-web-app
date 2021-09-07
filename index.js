@@ -25,7 +25,7 @@ const helmet = require('helmet');
 
 // process.env.DB_URL || 
 // "mongodb://localhost:27017/Adventure"
-const dbUrl = process.env.DB_URL;
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/Adventure";
 const monogoSanitize = require('express-mongo-sanitize');
 const { networkInterfaces } = require('os');
 const secret = process.env.SECRET || 'THISSHOULDBEABETTERSECRET';
@@ -119,28 +119,3 @@ app.listen(port,()=>{
 })
 
 
-
-// const addMovie = async ()=>{
-//     await Movie.deleteMany({});
-
-//     const d1 = new Movie({title:'Free Guy',genre:'Comedy',author:'612b69905bb7eb308cfc25be',cast:'Ryan Reynolds',director:'Shawn Levy',review:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam laborum! Doloremque autem excepturi voluptas voluptate sit ratione suscipit dolorum minima saepe expedita itaque illum voluptatem adipisci delectus doloribus, hic molestiae repellendus aperiam corrupti veritatis libero! Quasi delectus, facilis dolore non sapiente modi, quidem consequuntur aut a vero tempora officiis obcaecati. Optio, tempore deserunt. Officiis nemo nobis excepturi quas veniam.",image:'https://cdn-s3.allmovie.com/movie_images/V722277/homepage.jpg'})
-//     await d1.save();
-
-
-//     const d2 = new Movie({title:'Aladdin',genre:'Fantasy',author:'612b69905bb7eb308cfc25be',cast:'Sonbeel',director:'Guy Ritchie',review:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam laborum! Doloremque autem excepturi voluptas voluptate sit ratione suscipit dolorum minima saepe expedita itaque illum voluptatem adipisci delectus doloribus, hic molestiae repellendus aperiam corrupti veritatis libero! Quasi delectus, facilis dolore non sapiente modi, quidem consequuntur aut a vero tempora officiis obcaecati. Optio, tempore deserunt. Officiis nemo nobis excepturi quas veniam.",image:'https://lumiere-a.akamaihd.net/v1/images/p_aladdin2019_17638_d53b09e6.jpeg'})
-//     await d2.save();
-
-    
-//     const d3 = new Movie({title:'Fast9',genre:'Action',author:'612b69905bb7eb308cfc25be',cast:'Vin Diesel',director:'Justin Lin',review:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam laborum! Doloremque autem excepturi voluptas voluptate sit ratione suscipit dolorum minima saepe expedita itaque illum voluptatem adipisci delectus doloribus, hic molestiae repellendus aperiam corrupti veritatis libero! Quasi delectus, facilis dolore non sapiente modi, quidem consequuntur aut a vero tempora officiis obcaecati. Optio, tempore deserunt. Officiis nemo nobis excepturi quas veniam.",image:'https://d2j1wkp1bavyfs.cloudfront.net/admin-uploads/posters/f9-movie-poster_1618415923.jpg?d=360x540&q=50'})
-//     await d3.save();
-
-//     const d4 = new Movie({title:'Star Wars',genre:'Space-Adventure',author:'612b69905bb7eb308cfc25be',cast:'Mark Hamill,Natalie Portman',director:'Rian Johnson',review:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam laborum! Doloremque autem excepturi voluptas voluptate sit ratione suscipit dolorum minima saepe expedita itaque illum voluptatem adipisci delectus doloribus, hic molestiae repellendus aperiam corrupti veritatis libero! Quasi delectus, facilis dolore non sapiente modi, quidem consequuntur aut a vero tempora officiis obcaecati. Optio, tempore deserunt. Officiis nemo nobis excepturi quas veniam.",image:'https://mlpnk72yciwc.i.optimole.com/cqhiHLc.WqA8~2eefa/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2020/05/star-wars-the-complete-saga-will-be-on-disney-monday-credit-disney.jpg'})
-//     await d4.save();
-
-//     const d5 = new Movie({title:'Ra One',genre:'SuperHero',author:'612b69905bb7eb308cfc25be',cast:'Shahrukh Khan,Kareena Kapoor',director:'Anubhav Sinha',review:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nam laborum! Doloremque autem excepturi voluptas voluptate sit ratione suscipit dolorum minima saepe expedita itaque illum voluptatem adipisci delectus doloribus, hic molestiae repellendus aperiam corrupti veritatis libero! Quasi delectus, facilis dolore non sapiente modi, quidem consequuntur aut a vero tempora officiis obcaecati. Optio, tempore deserunt. Officiis nemo nobis excepturi quas veniam.",image:'https://m.media-amazon.com/images/M/MV5BMzcyMjMxOTg4MF5BMl5BanBnXkFtZTcwNzEwMDE5Ng@@._V1_FMjpg_UX1000_.jpg'})
-//     await d5.save();
-// }
-
-    
-
-// addMovie();
