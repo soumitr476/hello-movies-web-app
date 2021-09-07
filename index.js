@@ -24,7 +24,8 @@ const comments = require('./routes/comments');
 const helmet = require('helmet');
 
 // process.env.DB_URL || 
-const dbUrl = process.env.DB_URL ||  "mongodb://localhost:27017/Adventure";
+// "mongodb://localhost:27017/Adventure"
+const dbUrl = process.env.DB_URL;
 const monogoSanitize = require('express-mongo-sanitize');
 const { networkInterfaces } = require('os');
 const secret = process.env.SECRET || 'THISSHOULDBEABETTERSECRET';
