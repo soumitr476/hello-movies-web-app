@@ -3,7 +3,7 @@ if(process.env.NODE_ENV != 'production'){
 }
 
 
-"use strict";
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -50,7 +50,7 @@ app.use(helmet({contentSecurityPolicy:false}));
 
 
 const store = new MongoDBStore({
-    mongooseConnection: mongoose.connection,
+    url: dbUrl,
     secret,
     touchAfter:24*3600
 });
