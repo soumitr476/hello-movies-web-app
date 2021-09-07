@@ -22,12 +22,13 @@ const users = require('./routes/users');
 const movies = require('./routes/movies');
 const comments = require('./routes/comments');
 const helmet = require('helmet');
-const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/Adventure";
 
-// const dbUrl = process.env.DB_URL;
+// process.env.DB_URL || 
+const dbUrl = process.env.DB_URL ||  "mongodb://localhost:27017/Adventure";
 const monogoSanitize = require('express-mongo-sanitize');
 const { networkInterfaces } = require('os');
 const secret = process.env.SECRET || 'THISSHOULDBEABETTERSECRET';
+const MongoDBStore = require('connect-mongo')(session);
 mongoose.connect(dbUrl,{useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify: false,useCreateIndex:true});
 
 const db = mongoose.connection;
@@ -46,27 +47,31 @@ app.use(methodOverride('_method'));
 app.use(monogoSanitize());
 app.use(helmet({contentSecurityPolicy:false}));
 
-const MongoDBStore = require('connect-mongodb-session')(session);
+
 const store = new MongoDBStore({
-    uri: dbUrl,
-    collection: 'sessions'
+    url: dbUrl,
+    secret,
+    touchAfter:24*3600
 });
+
 store.on("error",function(e){
     console.log('session error',e);
 })
-app.use(session({
+
+const sessionConfig = {
+    store,
     name: 'movieSession',
     secret,
     resave: false,
     saveUninitialized: true,
-    store,
     cookie: {
         httpOnly: true,
         //secure: true,
         expires: Date.now()+1000*60*60*24*7,
         maxAge: 1000*60*60*24*7
     }
-}));
+}
+app.use(session(sessionConfig));
 
 
 
