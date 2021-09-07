@@ -50,7 +50,7 @@ app.use(helmet({contentSecurityPolicy:false}));
 
 
 const store = new MongoDBStore({
-    url: dbUrl,
+    mongooseConnection: mongoose.connection,
     secret,
     touchAfter:24*3600
 });
@@ -67,7 +67,7 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        secure: true,
+        //secure: true,
         expires: Date.now()+1000*60*60*24*7,
         maxAge: 1000*60*60*24*7
     }
