@@ -48,7 +48,7 @@ app.use(methodOverride('_method'));
 app.use(monogoSanitize());
 app.use(helmet({contentSecurityPolicy:false}));
 
-
+const store = new MongoStore({mongooseConnection: mongoose.connection});
 app.use(session({
     name: 'movieSession',
     secret,
@@ -60,7 +60,7 @@ app.use(session({
         expires: Date.now()+1000*60*60*24*7,
         maxAge: 1000*60*60*24*7
     },
-    store: new MongoStore({mongooseConnection: mongoose.connection})
+    store
 }));
 
 
