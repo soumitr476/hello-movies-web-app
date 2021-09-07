@@ -36,8 +36,6 @@ db.once('open', function() {
   console.log('Database Connected');
 });
 
-const MongoStore = require('connect-mongo')(session);
-
 app.engine('ejs',ejsMate);
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
@@ -48,7 +46,11 @@ app.use(methodOverride('_method'));
 app.use(monogoSanitize());
 app.use(helmet({contentSecurityPolicy:false}));
 
-const store = new MongoStore({mongooseConnection: mongoose.connection});
+const MongoDBStore = require('connect-mongodb-session')(session);
+const store = new MongoDBStore({
+    uri: dbUrl,
+    collection: 'sessions'
+});
 store.on("error",function(e){
     console.log('session error',e);
 })
@@ -57,6 +59,7 @@ app.use(session({
     secret,
     resave: false,
     saveUninitialized: true,
+    store,
     cookie: {
         httpOnly: true,
         //secure: true,
