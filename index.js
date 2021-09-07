@@ -49,6 +49,9 @@ app.use(monogoSanitize());
 app.use(helmet({contentSecurityPolicy:false}));
 
 const store = new MongoStore({mongooseConnection: mongoose.connection});
+store.on("error",function(e){
+    console.log('session error',e);
+})
 app.use(session({
     name: 'movieSession',
     secret,
