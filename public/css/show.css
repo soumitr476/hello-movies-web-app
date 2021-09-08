@@ -102,4 +102,8 @@
     width: 220px;
     margin-bottom: 5px;
   }
+
+  .comment {
+    margin-left: -80px;
+  }
 }
