@@ -67,7 +67,7 @@ input {
 input[type="file"] {
   display: none;
 }
-label {
+.image label {
   color: white;
   height: 40px;
   width: 200px;
