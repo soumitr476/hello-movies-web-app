@@ -5,7 +5,8 @@
   background: #e8f0fe;
   position: absolute;
   border-radius: 10px;
-  margin-left: 400px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .new h1 {
@@ -14,10 +15,6 @@
   font-weight: bold;
   padding: 20px 0 20px 0;
   border-bottom: 1px solid silver;
-}
-
-form {
-  padding: 0 40px;
 }
 
 form .username,
@@ -51,4 +48,10 @@ input {
   color: #e9f4fb;
   cursor: pointer;
   outline: none;
+}
+
+@media all and (max-width: 500px) {
+  .new {
+    width: 330px;
+  }
 }

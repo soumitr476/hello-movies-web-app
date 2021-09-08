@@ -60,8 +60,8 @@ store.on("error",function(e){
 })
 
 const sessionConfig = {
-    store,
     name: 'movieSession',
+    store,
     secret,
     resave: false,
     saveUninitialized: true,

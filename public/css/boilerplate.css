@@ -10,35 +10,35 @@ body {
   position: relative;
 }
 
-header {
-  background-color: #eb4034;
+nav {
+  background-color: #f80f5c;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 10px 10px;
+  justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 1;
+  color: #edf0f1;
 }
 
 .navlinks li a {
   font-family: "Montserrat", sans-serif;
   font-weight: 500px;
   font-size: 16px;
-  color: #edf0f1;
   text-decoration: none;
+  color: #edf0f1;
 }
 
-.navlinks {
+nav .navlinks {
+  display: flex;
   list-style: none;
 }
 
-.navlinks li {
+nav .navlinks li a {
   display: inline-block;
-  padding: 0px 20px;
-}
+  padding: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
 
-.navlinks li a {
   transition: all 0.3s ease 0s;
 }
 
@@ -46,8 +46,16 @@ header {
   color: #0088a9;
 }
 
-.container {
-  padding: 0px 80px;
+nav .openMenu {
+  font-size: 1.5rem;
+  margin: 10px;
+  display: none;
+  cursor: pointer;
+}
+nav .navlinks .closeMenu i {
+  font-size: 2rem;
+  display: none;
+  cursor: pointer;
 }
 
 .container img {
@@ -57,4 +65,37 @@ header {
 
 .error {
   color: #eb4034;
+}
+
+@media (max-width: 500px) {
+  nav .navlinks {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    transition: top 1s ease;
+    display: none;
+  }
+  nav .navlinks .closeMenu i {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  nav .openMenu {
+    display: block;
+  }
+
+  nav .navlinks li a:hover {
+    background: none;
+    color: #eb4034;
+    font-size: 1.6rem;
+  }
 }

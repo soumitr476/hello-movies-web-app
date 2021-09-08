@@ -2,6 +2,7 @@
 <a href="/movies"><button id="back">BACK</button></a>
 <div class="show">
     <div class="info">
+    <div class="upperTitle">
     <h1><%= movie.title %> </h1>
     <ul>
         <li>Genre: <%= movie.genre  %> </li>
@@ -17,6 +18,7 @@
         </p> 
         <% }  %> 
     </ul>
+    </div>
     <div class="reviewBox">
     <h3 id="review1">REVIEW</h3>
     <p id="movieReview"><%= movie.review  %> </p>

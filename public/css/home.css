@@ -40,3 +40,7 @@ a:hover {
   box-shadow: 0 0 10px #eb4034, 0 0 40px #eb4034, 0 0 80px #eb4034;
   transform-style: 1s;
 }
+
+a:focus {
+  outline: 0;
+}
