@@ -53,6 +53,9 @@ input {
   cursor: pointer;
   outline: none;
 }
+.Add:focus {
+  outline: none;
+}
 
 #review {
   font-size: 20px;

@@ -49,6 +49,9 @@ input {
   cursor: pointer;
   outline: none;
 }
+.Submit:focus {
+  outline: none;
+}
 
 @media all and (max-width: 500px) {
   .new {
