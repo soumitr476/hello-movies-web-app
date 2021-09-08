@@ -32,8 +32,22 @@
 <div class="comment">
     <% if(registeredUser){ %>
         <form action="/movies/<%= movie._id %>/comments" method="POST">
-        <label for="rating">Rating</label>
-        <input type="range" min="1" max="5" id="rating" name="comment[rating]" re>
+        <!-- <label for="rating">Rating</label>
+        <input type="range" min="1" max="5" id="rating" name="comment[rating]" re> -->
+        <fieldset class="starability-heart">
+            <legend>Rate Movie:</legend>
+            <input type="radio" id="no-rate" class="input-no-rate" name="comment[rating]" value="0" checked aria-label="No rating." />
+            <input type="radio" id="first-rate1" name="comment[rating]" value="1" />
+            <label for="first-rate1" title="Terrible">1 star</label>
+            <input type="radio" id="first-rate2" name="comment[rating]" value="2" />
+            <label for="first-rate2" title="Not good">2 stars</label>
+            <input type="radio" id="first-rate3" name="comment[rating]" value="3" />
+            <label for="first-rate3" title="Average">3 stars</label>
+            <input type="radio" id="first-rate4" name="comment[rating]" value="4" />
+            <label for="first-rate4" title="Very good">4 stars</label>
+            <input type="radio" id="first-rate5" name="comment[rating]" value="5" />
+            <label for="first-rate5" title="Amazing">5 stars</label>
+          </fieldset>
         <label for="body">Comment</label>
         <textarea name="comment[body]" id="body" cols="30" rows="3" required></textarea>
         <button>Submit</button>
